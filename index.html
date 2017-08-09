@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loskitApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Лоскіт - офіційна сторінка</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <script src="controllers.js"></script>
+</head>
+<body ng-controller="rowCtrl">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <i class="fa fa-ravelry fa-spin fa-2x hidden-xs" aria-hidden="true"></i>
+            <a href="#"><img src="images/q.png" alt="" class="hidden-xs"></a>
+            <i class="fa fa-ravelry fa-spin fa-2x hidden-xs" aria-hidden="true"></i>
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="images/h1.png" alt="" class="logo hidden-sm">
+        </div>
+
+        <div class="navbar-collapse collapse" id="responsive-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#headerwrap">Головна</a></li>
+                <li><a href="#biography"><i class="fa fa-address-book-o" aria-hidden="true"></i></a></li>
+                <li><a href="#slider"><i class="fa fa-camera-retro" aria-hidden="true"></i></a></li>
+                <li><a href="#video"><i class="fa fa-film" aria-hidden="true"></i></a></li>
+                <li><a href="#article"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+<br>
+<div id="headerwrap">
+    <div class="container">
+        <div class="row centered">
+            <div class="col-md-8 col-md-offset-4">
+                <p class="notate" align="right" ><i class="fa fa-copyright" aria-hidden="true"></i>
+                    Не тримай ти свої мрії у собі, ти здатен на більше... <br>- Все вище і вище (Лоскіт)</p>
+            </div>
+                <h1>Дискогр <i class="fa fa-font" aria-hidden="true"></i>
+                    фія <i class="fa fa-folder-open-o" aria-hidden="true"></i></h1>
+        </div>
+        <div class="row centered">
+            <br><br>
+            <div class="col-md-6">
+                <img src="images/3.png" alt="">
+                <h4>Мир землянам - 2014</h4>
+                <br>
+                <ul>
+                    <li>1. Сотні тисяч (03:17)</li>
+                    <li>2. Нафта, газ, руда (03:36)</li>
+                    <li>3. Мир землянам (05:22)</li>
+                    <li>4. Anticapitalista (02:42)</li>
+                    <li>5. Результат генетичного коду (03:22)</li>
+                    <li>6. Все вище і вище (03:16)</li>
+                    <li>7. Я хочу (04:55)</li>
+                    <li>8. Нафта, газ, руда (Live Acoustic)(04:16)</li>
+                    <br><br><br>
+                </ul>
+                <a href="https://myzuka.me/Artist/400196/Loskit">Слухати тут <i class="fa fa-music" aria-hidden="true"></i>
+                </a>
+                <hr>
+                <br>
+            </div>
+            <div class="col-md-6">
+                <img src="images/1.png" alt="">
+                <h4>Кольорові папірці - 2015</h4>
+                <br>
+                <ul>
+                    <li>1. Всім тепла (03:19)</li>
+                    <li>2. Міністри (02:43)</li>
+                    <li>3. Досить (03:06)</li>
+                    <li>4. Брехня (02:51)</li>
+                    <li>5. Кольорові папірці (03:35)</li>
+                    <li>6. A.C.A.B (01:48)</li>
+                    <li>7. Содом (03:04)</li>
+                    <li>8. Беркут (01:15)</li>
+                    <li>9. Довга коса (03:04)</li>
+                    <li>10. Не закінчиться ніколи (03:48)</li>
+                    <li>11. Від 28 (03:28)</li>
+                </ul>
+                <a href="http://gnwp.ru/62145-loskt-kolorov-paprc-2016.html">Слухати тут <i class="fa fa-music" aria-hidden="true"></i></a>
+                    <hr>
+                <br>
+                <br><br><br><br>
+            </div>
+            <div class="row">
+                <a  class="centered href_button" ng-click="sendRequest()">{{textSongs}}</a><br>
+                <input type="text" ng-model="search" class="filter" placeholder="Введіть назву пісні">
+                <div class="col-md-offset-5 col-md-2 col-md-offset-5">
+                    <div ng-repeat="text in listSongs | filter:{name:search}"><br>
+                        <h4 class="centered" style="color: #337ab7">
+                            {{text.name}}</h4>
+                        <h5 class="centered">{{text.textSong}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="biography">
+    <div class="row centered">
+        <h1 class="bio">Біографія</h1>
+        <br><br>
+        <div class="col-md-3">
+            <img src="images/а3.png" alt="">
+            <div class="acc">
+                <p>Дмитро Урбанович</p> <br><br>Бас-гітара. Родом з міста Стебник...
+                <button class="btn btn-info">Детальніше</button>
+                <div class="text">
+                    що на Львівщині. На даний час проживає в місті Тернополі. День народження 14 вересня 1995 року.
+                    Навчається у медичному університеті. Дмитро Урбанович та його товариш Станіслав Соляник, який грав на гітарі,
+                    задумали створити музичний гурт. Дмитро запропонував долучитися Ростиславу Доскочинському,
+                    який навчався у музичній школі. Згодом до них приєднався і Володя Гладкий.
+                </div>
+            </div>
+            <hr>
+            <br><br>
+        </div>
+        <div class="col-md-3">
+            <img src="images/а1.png" alt="">
+                <div class="acc">
+                    <p>Ростислав Доскочинський</p> <br><br> Гітарист-вокаліст. Родом з міста Стебник...
+                    <button class="accordion btn btn-info">Детальніше</button>
+                    <div class="text">що на Львівщині. День народження 20 жовтня 1996 року. Закінчив музичну школу.
+                        На даний час навчається у Львівській політехніці.Хлопці почали збиратися на території занедбаного заводу, де колись
+                        були рудники. Там вони провели багато репетицій. Через два роки гурт отримав свою остаточну назву
+                        — „Лоскіт“. — Ми розгорнули тлумачний словник і читали, що означає те чи інше слово. Якось „лоскіт“
+                        усім припав до душі. Це слово викликає приємні асоціації. Хочемо, щоб так було і з нашою музикою,
+                        щоб вона зароджувала лише позитивні думки і спонукала слухача до конструктивних рішень і дій, —
+                        розповідає Ростислав.
+                    </div>
+                </div>
+            <hr>
+            <br><br>
+        </div>
+        <div class="col-md-3">
+            <img src="images/а2.png" alt="">
+            <div class="acc">
+                <p>Станіслав Соляник</p> <br><br> Гітарист-вокаліст. Родом з міста Стебник...
+                <button class="accordion btn btn-info">Детальніше</button>
+                <div class="text">що на Львівщині. На сьогоднішній проживає у Львові. Закінчив коледж ім.Івана Труша.
+                    День народження 2 червня 1995 року.І музику, і тексти до пісень хлопці пишуть самі.
+                    На початках вони тяжіли до американського стилю створення пісень, але, зростаючи, зацікавилися
+                    політикою, зрештою, всім, що відбувається в державі. І почали писати у панк-рок-стилі про злободенні
+                    питання, які турбують молодь, висловлювати свою незгоду з певними подіями. У їхньому репертуарі —
+                    багато пісень про війну, адже це явище на сьогодні вважають найболючішим і найпроблемнішим для країни.
+                </div>
+            </div>
+            <hr>
+            <br><br>
+        </div>
+        <div class="col-md-3">
+            <img src="images/а4.png" alt="">
+            <div class="acc">
+                <p>Володимир Гладкий</p> <br><br> Ударні. Родом з міста Стебник...
+                <button class="accordion btn btn-info">Детальніше</button>
+                <div class="text">що на Львівщині. Проживає у місті Стебнику.
+                    Закінчив Івано-Франківський університет нафти і газу. Торік „Лоскіт“ випустив дебютний
+                    альбом „Мир землянам“, до якого ввійшло вісім пісень. Відтоді почали більше концертувати. Тепер хлопці
+                    бачать, як виросли професійно, але на цьому не зупиняються, бо вважають за необхідне постійно
+                    вдосконалюватися. Готують другий альбом і сподіваються, що він таки вийде, попри фінансові труднощі.
+                    Гурт уже встиг концертувати по містах Західної, Центральної України. На початку травня побував на
+                    „Рок-булаві“ у Переяславі-Хмельницькому.
+                </div>
+            </div>
+            <hr>
+            <br><br>
+        </div>
+    </div>
+    <br>
+</div>
+<div class="container" id="slider">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="slider">
+                <div class="img">
+                    <div class="numbertext">1/10</div>
+                    <img src="images/d.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">2/10</div>
+                    <img src="images/9.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">3/10</div>
+                    <img src="images/s.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">4/10</div>
+                    <img src="images/v.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">5/10</div>
+                    <img src="images/f.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">6/10</div>
+                    <img src="images/g.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">7/10</div>
+                    <img src="images/x.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">8/10</div>
+                    <img src="images/m.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">9/10</div>
+                    <img src="images/n.png" alt="" class="img-responsive">
+                </div>
+                <div class="img">
+                    <div class="numbertext">10/10</div>
+                    <img src="images/l.png" alt="" class="img-responsive">
+                </div>
+                <a class="prev" onclick="moveSlides(-1)"><i class="fa fa-hand-o-left" aria-hidden="true"></i></a>
+                <a class="next" onclick="moveSlides(1)"><i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
+            </div>
+            <br>
+
+            <div class="centered">
+                <span class="dot" onclick="activeSlide(1)"></span>
+                <span class="dot" onclick="activeSlide(2)"></span>
+                <span class="dot" onclick="activeSlide(3)"></span>
+                <span class="dot" onclick="activeSlide(4)"></span>
+                <span class="dot" onclick="activeSlide(5)"></span>
+                <span class="dot" onclick="activeSlide(6)"></span>
+                <span class="dot" onclick="activeSlide(7)"></span>
+                <span class="dot" onclick="activeSlide(8)"></span>
+                <span class="dot" onclick="activeSlide(9)"></span>
+                <span class="dot" onclick="activeSlide(10)"></span>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <br><br>
+<hr>
+</div>
+<br>
+
+<div class="container" id="video">
+    <div class="row centered">
+        <div class="col-md-3">
+            <iframe width="200" height="200" src="https://www.youtube-nocookie.com/embed/abaFRgxd-xk?rel=0&amp; controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+             <h4><i class="fa fa-video-camera" aria-hidden="true"></i>
+                 Лоскіт на фестивалі Республіка (м.Кам'янець-Подільський)</h4>
+         </div>
+         <div class="col-md-3">
+             <iframe width="200" height="200" src="https://www.youtube-nocookie.com/embed/J8Ams57WctU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>              <h4><i class="fa fa-video-camera" aria-hidden="true"></i>
+                  Лоскіт на розігріві у "Порнофільмів" (м.Київ)</h4>
+          </div>
+          <div class="col-md-3">
+              <iframe width="200" height="200" src="https://www.youtube-nocookie.com/embed/JD80mcJv2XM?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+              <h4><i class="fa fa-video-camera" aria-hidden="true"></i>
+                  Лоскіт на фестивалі Файне Місто (м.Тернопіль)</h4>
+          </div>
+          <div class="col-md-3">
+              <iframe width="200" height="200" src="https://www.youtube-nocookie.com/embed/pxt_ov7U-bw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+              <h4><i class="fa fa-video-camera" aria-hidden="true"></i>
+                  Лоскіт на фестивалі РаковецьФест (смт.Раковець)</h4>
+          </div>
+    </div>
+    <hr>
+</div>
+    <div class="container article" id="article">
+        <div class="row centered">
+            <div class="col-md-12">
+                        <h1><a href="http://audytoriya.lpnu.ua/"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                            Стаття з студентського журналу "Аудиторія".</a></h1>
+            </div>
+            <div class="container hidden-sm hidden-xs">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="member">
+                            <div class="mainBlock"><i class="fa fa-blind" aria-hidden="true"></i>
+                                Ростислав
+                                <div class="collapseBlock">Гітара</div>
+                            </div>
+                            <div class="mainBlock"><i class="fa fa-blind" aria-hidden="true"></i>
+                                Станіслав
+                                <div class="collapseBlock">Гітара</div>
+                            </div>
+                            <div class="mainBlock"><i class="fa fa-blind" aria-hidden="true"></i>
+                                Дмитро
+                                <div class="collapseBlock">Бас-гітара</div>
+                            </div>
+                            <div class="mainBlock"><i class="fa fa-blind" aria-hidden="true"></i>
+                                Володимир
+                                <div class="collapseBlock">Ударні</div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+                    <p><h3>Музика повинна викликати приємні почуття.</h3> <br>
+                    Так вважають учасники гурту „Лоскіт“ — студенти різних вишів, які започаткували свій колектив,
+                    коли мали по 14 років. Хлопці родом зі Стебника на Львівщині — містечка зі складними економічними
+                    і соціальними проблемами, де батьки у пошуках роботи вирушають за кордон, іноді залишаючи дітей напризволяще.
+                    П’ять років тому там згуртувалися хлопчаки, які вирішили мовою музики зробити виклик
+                    негативним суспільним процесам. Дмитро Урбанович та його товариш Станіслав Соляник, який грав на гітарі,
+                    задумали створити музичний гурт. Дмитро запропонував долучитися Ростиславу Доскочинському,
+                    який навчався у музичній школі. Згодом до них приєднався і Володя Гладкий. Так виник гурт із
+                    робочою назвою Saturday. Ростислав і Станіслав — гітаристи, Дмитро — басист, а Володя додає
+                    музиці барабанних ефектів. Хлопці почали збиратися на території занедбаного заводу, де колись
+                    були рудники. Там вони провели багато репетицій. Через два роки гурт отримав свою остаточну назву
+                    — „Лоскіт“. — Ми розгорнули тлумачний словник і читали, що означає те чи інше слово. Якось „лоскіт“
+                    усім припав до душі. Це слово викликає приємні асоціації. Хочемо, щоб так було і з нашою музикою,
+                    щоб вона зароджувала лише позитивні думки і спонукала слухача до конструктивних рішень і дій, —
+                    розповідає Ростислав. Перший концерт „Лоскоту“ в одному з львівських клубів був невдалий.
+                    Хлопці побачили, що публіка їх не сприйняла. Та й самі зрозуміли, що вони ще на досить
+                    слабкому рівні. Але та оказія їх не розбалансувала, а навпаки — змусила працювати більше.
+                    Вони почали вправлятися у вокалі, більше тренуватися — і результат не забарився.
+                    Вже наступний концерт був на значно вищому рівні, і глядачі його сприйняли. Сьогодні учасники „Лоскоту“
+                    — студенти різних навчальних закладів. Ростислав Доскочинський навчається в Інституті геодезії
+                    Львівської політехніки, Станіслав Соляник — у коледжі ім. І. Труша, Дмитро Урбанович— майбутній медик,
+                    а Володя Гладкий здобуває освіту нафтовика в одному з івано-франківських університетів.
+                    Місцем для репетицій переважно і надалі є рідний Стебник, однак хлопці вже мають для цього відповідне
+                    приміщення. А у Львові часто грають просто неба. І музику, і тексти до пісень хлопці пишуть самі.
+                    На початках вони тяжіли до американського стилю створення пісень, але, зростаючи, зацікавилися
+                    політикою, зрештою, всім, що відбувається в державі. І почали писати у панк-рок-стилі про злободенні
+                    питання, які турбують молодь, висловлювати свою незгоду з певними подіями. У їхньому репертуарі —
+                    багато пісень про війну, адже це явище на сьогодні вважають найболючішим і найпроблемнішим для країни.
+                    Своїми піснями „лоскотівці“ намагаються переконати людей, що ніколи не треба сподіватися на владу і
+                    очікувати від неї бозна-чого, бо зміни залежать від кожного з нас. Торік „Лоскіт“ випустив дебютний
+                    альбом „Мир землянам“, до якого ввійшло вісім пісень. Відтоді почали більше концертувати. Тепер хлопці
+                    бачать, як виросли професійно, але на цьому не зупиняються, бо вважають за необхідне постійно
+                    вдосконалюватися. Готують другий альбом і сподіваються, що він таки вийде, попри фінансові труднощі.
+                    Гурт уже встиг концертувати по містах Західної, Центральної України. На початку травня побував на
+                    „Рок-булаві“ у Переяславі-Хмельницькому. А нещодавній виступ відбувся на цьогорічному фестивалі
+                    „Весна Політехніки“. Попри те, що ніхто з виконавців не обрав музику як фах, хлопці вбачають у ній
+                    своє земне призначення. <br><p class="owner"><i class="fa fa-copyright" aria-hidden="true"></i>Ірина МАРТИН</p>
+            </div>
+
+                </div>
+                <br><br><br><br>
+    <div id="map"></div>
+<br><br><br>
+<hr>
+<hr>
+<br><br><br>
+<div id="footer">
+    <div class="container">
+        <div class="row centered">
+            <h3 class="footertext">Ми в соціальних мережах:</h3>
+            <br>
+            <div class="col-md-4">
+                 <br>
+                    <a href="https://vk.com/loskitband">
+                         <span class="fa-stack fa-2x colorIcon">
+                            <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                            <i class="fa fa-vk fa-stack-1x" aria-hidden="true"></i>
+                        </span>
+                    </a>
+            </div>
+            <div class="col-md-4">
+                <br>
+                <a href="https://www.facebook.com/loskitband/">
+                         <span class="fa-stack fa-2x colorIcon">
+                             <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                            <i class="fa fa-facebook fa-stack-1x" aria-hidden="true"></i>
+                        </span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <br>
+                <a href="https://www.youtube.com/channel/UCw0ZK5G8SNQ6vNypUjY1B0w">
+                         <span class="fa-stack fa-2x colorIcon">
+                            <i class="fa fa-circle-thin fa-stack-2x" aria-hidden="true"></i>
+                             <i class="fa fa-youtube fa-stack-1x" aria-hidden="true"></i>
+                        </span>
+                </a>
+            </div>
+        </div>
+        <div class="row centered">
+            <h5><i class="fa fa-copyright" aria-hidden="true"></i>Лоскіт - всі права захищені 2017</h5>
+        </div>
+    </div>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!--<script src="js/bootstrap.js"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJx_iMDM8ZqYszfCCA-4c5UuDLmnhw-xE
+&callback=initMap"async defer></script>
+<script src="js/bootstrap.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
